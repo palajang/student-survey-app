@@ -1,0 +1,77 @@
+/* src/app/survey-page/survey-page.component.css */
+
+:root {
+  --gmu-green: #006633;
+  --gmu-yellow: #FFCC33;
+  --gmu-white: #FFFFFF;
+  --gmu-dark-green: #004d26;
+}
+
+h2 {
+  text-align: center;
+  color: var(--gmu-green);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: var(--gmu-green);
+}
+
+.required {
+  color: red;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: var(--gmu-white);
+  background-color: var(--gmu-green);
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: var(--gmu-dark-green);
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

@@ -1,0 +1,54 @@
+/* src/app/list-surveys/list-surveys.component.css */
+
+:root {
+  --gmu-green: #006633;
+  --gmu-yellow: #FFCC33;
+  --gmu-white: #FFFFFF;
+  --gmu-dark-green: #004d26;
+}
+
+h2 {
+  text-align: center;
+  color: var(--gmu-green);
+}
+
+.survey-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.survey-table th,
+.survey-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.survey-table th {
+  background-color: var(--gmu-yellow);
+  color: var(--gmu-green);
+  text-align: left;
+}
+
+.survey-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.survey-table button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--gmu-white);
+  background-color: var(--gmu-green);
+  border: none;
+  border-radius: 5px;
+}
+
+.survey-table button:hover {
+  background-color: var(--gmu-dark-green);
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

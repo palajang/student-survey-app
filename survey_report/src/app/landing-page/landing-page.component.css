@@ -1,0 +1,47 @@
+/* src/app/landing-page/landing-page.component.css */
+
+:root {
+  --gmu-green: #006633;
+  --gmu-yellow: #FFCC33;
+  --gmu-white: #FFFFFF;
+  --gmu-dark-green: #004d26;
+}
+
+.landing-container {
+  text-align: center;
+  margin-top: 20px;
+  background-color: var(--gmu-yellow); /* Yellow background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.landing-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+h1 {
+  color: var(--gmu-green); /* Green text */
+  margin-top: 20px;
+}
+
+.links {
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 25px;
+  font-size: 18px;
+  color: var(--gmu-white); /* White text */
+  background-color: var(--gmu-green); /* Green background */
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn:hover {
+  background-color: var(--gmu-dark-green); /* Darker green on hover */
+}

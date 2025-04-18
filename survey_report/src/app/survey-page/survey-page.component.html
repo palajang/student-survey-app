@@ -1,0 +1,130 @@
+<!-- src/app/survey-page/survey-page.component.html -->
+
+<h2>{{ surveyId ? 'Update Survey' : 'Student Survey Form' }}</h2>
+<form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+  <!-- Personal Information -->
+  <div class="form-group">
+    <label for="firstName">First Name<span class="required">*</span>:</label>
+    <input id="firstName" formControlName="firstName" type="text" />
+    <div class="error" *ngIf="surveyForm.get('firstName')?.touched && surveyForm.get('firstName')?.invalid">
+      First Name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name<span class="required">*</span>:</label>
+    <input id="lastName" formControlName="lastName" type="text" />
+    <div class="error" *ngIf="surveyForm.get('lastName')?.touched && surveyForm.get('lastName')?.invalid">
+      Last Name is required.
+    </div>
+  </div>
+
+  <!-- Address Fields -->
+  <div class="form-group">
+    <label for="streetAddress">Street Address<span class="required">*</span>:</label>
+    <input id="streetAddress" formControlName="streetAddress" type="text" />
+    <div class="error" *ngIf="surveyForm.get('streetAddress')?.touched && surveyForm.get('streetAddress')?.invalid">
+      Street Address is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="city">City<span class="required">*</span>:</label>
+    <input id="city" formControlName="city" type="text" />
+    <div class="error" *ngIf="surveyForm.get('city')?.touched && surveyForm.get('city')?.invalid">
+      City is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="state">State<span class="required">*</span>:</label>
+    <input id="state" formControlName="state" type="text" />
+    <div class="error" *ngIf="surveyForm.get('state')?.touched && surveyForm.get('state')?.invalid">
+      State is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="zip">Zip Code<span class="required">*</span>:</label>
+    <input id="zip" formControlName="zip" type="text" />
+    <div class="error" *ngIf="surveyForm.get('zip')?.touched && surveyForm.get('zip')?.invalid">
+      Zip Code is required.
+    </div>
+  </div>
+
+  <!-- Contact Information -->
+  <div class="form-group">
+    <label for="telephoneNumber">Telephone Number<span class="required">*</span>:</label>
+    <input id="telephoneNumber" formControlName="telephoneNumber" type="tel" />
+    <div class="error" *ngIf="surveyForm.get('telephoneNumber')?.touched && surveyForm.get('telephoneNumber')?.invalid">
+      Telephone Number is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email<span class="required">*</span>:</label>
+    <input id="email" formControlName="email" type="email" />
+    <div class="error" *ngIf="surveyForm.get('email')?.touched && surveyForm.get('email')?.invalid">
+      <div *ngIf="surveyForm.get('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="surveyForm.get('email')?.errors?.['email']">Invalid email format.</div>
+    </div>
+  </div>
+
+  <!-- Date of Survey -->
+  <div class="form-group">
+    <label for="dateOfSurvey">Date of Survey<span class="required">*</span>:</label>
+    <input id="dateOfSurvey" formControlName="dateOfSurvey" type="date" />
+    <div class="error" *ngIf="surveyForm.get('dateOfSurvey')?.touched && surveyForm.get('dateOfSurvey')?.invalid">
+      Date of Survey is required.
+    </div>
+  </div>
+
+  <!-- Campus Likes -->
+  <div class="form-group">
+    <label>What do you like most about the campus?<span class="required">*</span></label>
+    <div formGroupName="campusLikes">
+      <div *ngFor="let option of campusLikesOptions">
+        <label>
+          <input type="checkbox" [formControlName]="option.name" /> {{ option.label }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interested In -->
+  <div class="form-group">
+    <label>How did you become interested in the university?<span class="required">*</span></label>
+    <div>
+      <label *ngFor="let option of interestedInOptions">
+        <input type="radio" formControlName="interestedIn" [value]="option.value" /> {{ option.label }}
+      </label>
+    </div>
+    <div class="error" *ngIf="surveyForm.get('interestedIn')?.touched && surveyForm.get('interestedIn')?.invalid">
+      Please select an option.
+    </div>
+  </div>
+
+  <!-- Recommendation -->
+  <div class="form-group">
+    <label>Likelihood of recommending the school to others?<span class="required">*</span></label>
+    <select formControlName="recommendation">
+      <option value="">Select</option>
+      <option *ngFor="let option of recommendationOptions" [value]="option">{{ option }}</option>
+    </select>
+    <div class="error" *ngIf="surveyForm.get('recommendation')?.touched && surveyForm.get('recommendation')?.invalid">
+      Please select an option.
+    </div>
+  </div>
+
+  <!-- Comments -->
+  <div class="form-group">
+    <label for="comments">Additional Comments:</label>
+    <textarea id="comments" formControlName="comments" rows="4"></textarea>
+  </div>
+
+  <!-- Submit and Cancel Buttons -->
+  <div class="form-actions">
+    <button type="submit" [disabled]="surveyForm.invalid">{{ surveyId ? 'Update' : 'Submit' }}</button>
+    <button type="button" (click)="onCancel()">Cancel</button>
+  </div>
+</form>
